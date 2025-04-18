@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ur" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Irtiqa Centre | ارتقاء مرکز</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Irtiqa Centre | ارتقاء مرکز</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,7 +14,12 @@
       padding: 0;
       direction: rtl;
     }
+
     header {
+      position: sticky;
+      left: 0;
+      top: 0;
+      width: 100%;
       background: #0d1a26;
       color: white;
       padding: auto;
@@ -24,43 +30,58 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: auto; /* Reduce gap between elements */
-      margin: 0 auto; /* Center the container */
+      gap: auto;
+      /* Reduce gap between elements */
+      margin: 0 auto;
+      /* Center the container */
       flex-direction: row-reverse;
-      font-family: 'Tajawal', sans-serif; /* Apply Tajawal font */
+      font-family: 'Tajawal', sans-serif;
+      /* Apply Tajawal font */
     }
+
     .logo-container img {
       max-width: 100px;
-      margin: 0; /* Remove any default margin */
+      margin: 0;
+      /* Remove any default margin */
     }
+
     .logo-container span {
       font-size: 1.8rem;
       font-weight: bold;
-      margin: 0; /* Remove any default margin */
+      margin: 0;
+      /* Remove any default margin */
     }
+
     header h1 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
+
     header p {
       font-size: 1.2rem;
     }
+
     .light-bg {
-      background: #ffffff; /* Light background color */
+      background: #ffffff;
+      /* Light background color */
     }
+
     .section {
       padding: 2rem;
       max-width: 800px;
       margin: auto;
     }
+
     .section h2 {
       color: #0d1a26;
       margin-bottom: 1rem;
     }
+
     .services ul {
       list-style: none;
       padding: 0;
     }
+
     .services li {
       background: #fff;
       border: 1px solid #ddd;
@@ -68,16 +89,19 @@
       padding: 1rem;
       border-radius: 8px;
     }
+
     .contact p {
       background: #eef;
       padding: 1rem;
       border-radius: 8px;
       margin-bottom: 0.5rem;
     }
+
     .cta {
       text-align: center;
       margin: 2rem 0;
     }
+
     .cta p {
       display: inline-block;
       padding: 1rem 2rem;
@@ -88,6 +112,7 @@
       font-weight: bold;
       font-family: 'Tajawal', sans-serif;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -95,43 +120,159 @@
       margin-top: 2rem;
       color: #fff;
     }
+
     .social-icons {
-  display: flex; /* Use flexbox for alignment */
-  justify-content: center; /* Center the icons horizontally */
-  align-items: center; /* Center the icons vertically */
-  gap: 1rem; /* Add space between icons */
-  margin: 1rem 0; /* Add some vertical margin */
-}
+      display: flex;
+      /* Use flexbox for alignment */
+      justify-content: center;
+      /* Center the icons horizontally */
+      align-items: center;
+      /* Center the icons vertically */
+      gap: 1rem;
+      /* Add space between icons */
+      margin: 1rem 0;
+      /* Add some vertical margin */
+    }
 
-.social-icons a {
-  display: inline-block;
-  text-align: center;
-  margin: 0; /* Remove any default margin */
-  padding: 0; /* Remove any default padding */
-}
+    .social-icons a {
+      display: inline-block;
+      text-align: center;
+      margin: 0;
+      /* Remove any default margin */
+      padding: 0;
+      /* Remove any default padding */
+    }
 
-.social-icons img {
-  width: 50px; /* Set the desired width */
-  height: 50px; /* Set the desired height */
-}
+    .social-icons img {
+      width: 50px;
+      /* Set the desired width */
+      height: 50px;
+      /* Set the desired height */
+    }
 
+    .topnav {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .topnav a {
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      position: sticky;
+      left: 0;
+      top: 0;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #0d1a26;
+      color: white;
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .logo-text img {
+      height: 70px;
+    }
+
+    .logo-text span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: #f2f2f2;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo-text {
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="logo-container">
-      <span>مركز ارتقاء</span>
-      <img src="logo.png" alt="Irtiqa Logo" />
-    </div>
   </header>
+
+  <div class="navbar">
+    <div class="logo-text">
+      <img src="logo.png" alt="Logo">
+      <span>مركز ارتقاء</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 
   <div class="light-bg">
     <div class="section about">
-        <h1>📢 گنتی کے چند دن باقی ہیں!</h1>
-        <p>پھر سعودی جامعات میں داخلے کے دروازے کھل جائیں گے۔ ابھی سے تیاری کریں!</p>
+      <h1>📢 گنتی کے چند دن باقی ہیں!</h1>
+      <p>پھر سعودی جامعات میں داخلے کے دروازے کھل جائیں گے۔ ابھی سے تیاری کریں!</p>
       <h2>ہم کون ہیں؟</h2>
       <p>
-        Irtiqa Centre ایک تعلیمی کنسلٹنگ سروس ہے جو گلف ممالک کی یونیورسٹیوں میں داخلے کے خواہشمند طلبہ کی رہنمائی کرتی ہے۔ ہم CV بنانے، اور عربی، اردو، انگریزی و ہندی میں دستاویزات کے ترجمے کی سہولیات فراہم کرتے ہیں۔
+        Irtiqa Centre ایک تعلیمی کنسلٹنگ سروس ہے جو گلف ممالک کی یونیورسٹیوں میں داخلے کے خواہشمند طلبہ کی رہنمائی کرتی
+        ہے۔ ہم CV بنانے، اور عربی، اردو، انگریزی و ہندی میں دستاویزات کے ترجمے کی سہولیات فراہم کرتے ہیں۔
       </p>
     </div>
 
@@ -166,4 +307,5 @@
 
   <footer>2025 Irtiqa Centre &copy;</footer>
 </body>
+
 </html>
