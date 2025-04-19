@@ -24,6 +24,21 @@
       direction: rtl;
     }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  flex: 1;
+}
+
     header {
       position: sticky;
       left: 0;
@@ -260,7 +275,7 @@
 <body>
   <header>
   </header>
-
+<div class="page-wrapper">
   <div class="navbar">
     <div class="logo-text">
       <img src="/assest/logo.png" alt="Logo">
@@ -294,8 +309,8 @@
       <img src="/assest/email-icon.png" alt="Email">
     </a>
   </div>
-
-  <footer>2025 Irtiqa Centre &copy;</footer>
+</div>
+  <footer>@ Irtiqa Centre 2025</footer>
 </body>
 
 </html>
