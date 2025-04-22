@@ -136,7 +136,7 @@ footer {
 }
 
 .ad-banner img {
-  width: 300px;
+  width: 80%;
   max-width: 700px; /* you can adjust this max */
   height: auto;
   border-radius: 10px;
