@@ -45,6 +45,13 @@ body {
   color: #FFD700;
 }
 
+.logo-text a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #FFD700;
+}
+
 .ad {
   width: 100%;
 }
