@@ -260,7 +260,7 @@
 <body>
   <header>
   </header>
-
+  <div id="header"></div>
   <div class="navbar">
     <div class="logo-text">
       <img src="/assest/logo.png" alt="Logo">
@@ -315,6 +315,16 @@
   </div>
 
   <footer>2025 Irtiqa Centre &copy;</footer>
+  <div id="footer"></div>
+  <script>
+    fetch("/header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+    fetch("/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
 </body>
 
 </html>
