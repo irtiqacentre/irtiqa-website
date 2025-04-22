@@ -53,6 +53,10 @@ body {
   color: #FFD700;
 }
 
+.ad {
+  width: 100%;
+}
+
 .logo-text img {
   height: 70px;
 }
