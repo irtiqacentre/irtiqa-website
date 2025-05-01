@@ -139,7 +139,7 @@ footer {
 .ad-banner {
   display: flex;
   justify-content: center;
-  margin: 1px 1px;
+  margin: 20px auto;
 }
 
 .ad-banner img {
