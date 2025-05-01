@@ -63,6 +63,7 @@ body {
 .logo-text span {
   font-size: 30px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-links {
