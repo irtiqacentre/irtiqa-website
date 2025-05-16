@@ -6,180 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/assest/favicon.ico" type="image/x-icon">
   <title>Irtiqa Centre | ارتقاء مرکز</title>
-  <style>
-    @font-face {
-      font-family: 'Tajawal';
-      src: url('/Fonts/Tajawal-Regular.woff2') format('woff2'),
-           url('/Fonts/Tajawal-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Tajawal', sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      direction: rtl;
-      display: flex;
-      flex-direction: column;
-      min-height: 90%;
-    }
-
-    .page-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-  .navbar {  
-      position: sticky;  
-      left: 0;  
-      top: 0;  
-      width: 100%;  
-      display: flex;  
-      flex-wrap: nowrap;  
-      align-items: center;  
-      justify-content: space-between;  
-      padding: 10px 20px;  
-      background-color: #0d1a26;  
-      color: white;  
-      font-family: 'Tajawal', sans-serif;  
-    }  
-
-    .logo-text {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: #FFD700;
-    }
-
-    .logo-text img {
-      height: 70px;
-    }
-
-    .logo-text span {
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .nav-links a {
-      color: #f2f2f2;
-      text-decoration: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      background: #1F5463;
-      transition: background-color 0.3s;
-    }
-
-    .nav-links a:hover {
-      background-color: #04AA6D;
-      color: white;
-    }
-
-    @media screen and (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo-text {
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-
-      .nav-links {
-        justify-content: center;
-        flex-wrap: nowrap;
-      }
-    }
-
-    .cta {
-      text-align: center;
-      margin: 2rem 0 1rem 0;
-    }
-
-    .cta p {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #0d1a26;
-      color: white;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-
-    .social-icons a img {
-      width: 50px;
-      height: 50px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #0d1a26;
-      color: #fff;
-      direction: ltr;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-  <div class="navbar">
-    <div class="logo-text">
-      <img src="/assest/logo.png" alt="Logo">
-      <span>مركز ارتقاء</span>
-    </div>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="#services">Services</a>
-      <a href="/Q&A">Q&A</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
+  <header>
+  </header>
 
-  <div class="page-wrapper">
+    <script>
+    fetch("/header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+    fetch("/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+  
+  <div id="header"></div>
+
     <div class="cta">
       <p>ابھی رابطہ کریں</p>
     </div>
 
-    <div class="social-icons">
-      <a href="https://fb.com/IrtiqaCentre" target="_blank">
-        <img src="/assest/facebook-icon.png" alt="Facebook">
-      </a>
-      <a href="https://instagram.com/IrtiqaCentre" target="_blank">
-        <img src="/assest/instagram-icon.png" alt="Instagram">
-      </a>
-      <a href="https://wa.me/919076445735" target="_blank">
-        <img src="/assest/whatsapp-icon.png" alt="WhatsApp">
-      </a>
-      <a href="mailto:IrtiqaCentre@gmail.com" target="_blank">
-        <img src="/assest/email-icon.png" alt="Email">
-      </a>
-    </div>
+  <div class="social-icons">
+    <a href="https://fb.com/IrtiqaCentre" target="_blank">
+      <img src="/assest/facebook-icon.png" alt="Facebook">
+    </a>
+    <a href="https://instagram.com/IrtiqaCentre" target="_blank">
+      <img src="/assest/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://wa.me/919076445735" target="_blank">
+      <img src="/assest/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+    <a href="mailto:IrtiqaCentre@gmail.com" target="_blank">
+      <img src="/assest/email-icon.png" alt="Email">
+    </a>
   </div>
-
-  <footer>@ Irtiqa Centre 2025</footer>
+  
+  <div id="footer"></div>
 </body>
 
 </html>
