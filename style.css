@@ -72,6 +72,10 @@ body {
   gap: 10px;
 }
 
+.logo-text a:hover {
+  text-decoration: none;
+}
+
 .nav-links a {
   color: #f2f2f2;
   text-decoration: none;
