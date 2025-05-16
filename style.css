@@ -43,6 +43,7 @@ body {
   align-items: center;
   gap: 5px;
   color: #FFD700;
+  text-decoration: none;
 }
 
 .logo-text a {
