@@ -50,8 +50,10 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
+  text-decoration: none;
   color: #FFD700;
 }
+
 
 .ad {
   width: 100%;
