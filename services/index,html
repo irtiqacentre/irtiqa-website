@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assest/favicon.ico" type="image/x-icon">
+  <title>Irtiqa Centre | ارتقاء مرکز</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header>
+  </header>
+
+    <script>
+    fetch("/header.html").then(res => res.text()).then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+    fetch("/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+  
+  <div id="header"></div>
+
+<div id="ad" class="ad-banner">
+  <!-- <a href="https://wa.me/919076445735" target="_blank" rel="noopener noreferrer"> -->
+    <img src="/assest/001.jpg" alt="سعودی جامعات میں داخلہ کے لیے رابطہ کریں!">
+  </a>
+</div>
+
+    <div class="cta">
+      <p>ابھی رابطہ کریں</p>
+    </div>
+
+  <div class="social-icons">
+    <a href="https://fb.com/IrtiqaCentre" target="_blank">
+      <img src="/assest/facebook-icon.png" alt="Facebook">
+    </a>
+    <a href="https://instagram.com/IrtiqaCentre" target="_blank">
+      <img src="/assest/instagram-icon.png" alt="Instagram">
+    </a>
+    <a href="https://wa.me/919076445735" target="_blank">
+      <img src="/assest/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+    <a href="mailto:IrtiqaCentre@gmail.com" target="_blank">
+      <img src="/assest/email-icon.png" alt="Email">
+    </a>
+  </div>
+  
+  <div id="footer"></div>
+</body>
+
+</html>
