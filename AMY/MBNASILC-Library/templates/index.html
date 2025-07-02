@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بحث في مكتبة المعهد</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; direction: rtl; padding: 20px; }
+        input[type="text"] { padding: 8px; width: 300px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>📚 البحث في مكتبة المعهد</h2>
+<form method="POST">
+    <input type="text" name="query" placeholder="ابحث عن الكتاب..." autofocus>
+    <input type="submit" value="بحث">
+</form>
+
+
+    <table>
+        <thead>
+            <tr>
+                {% for header in headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
