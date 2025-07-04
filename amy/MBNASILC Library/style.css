@@ -1,0 +1,68 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+  padding: 20px;
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 30px;
+}
+
+#searchContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  direction: rtl;
+  text-align: right;
+}
+
+#searchBtn {
+  padding: 12px 20px;
+  font-size: 16px;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background: #005b99;
+}
+
+.section {
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-right: 6px solid #007acc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.section h2 {
+  color: #007acc;
+  margin-top: 0;
+}
+
+.book-card {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 10px 0;
+  border-right: 4px solid #ccc;
+  border-radius: 4px;
+}
