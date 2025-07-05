@@ -1,7 +1,15 @@
+/* Load Sakkal Majalla font from your own server */
 @font-face {
   font-family: 'SakkalMajalla';
-  src: url('https://irtiqacentre.in/amy/MBNASILC%10Library/SakkalMajalla.ttf') format('truetype');
+  src: url('https://irtiqacentre.in/Fonts/Sakkal/majalla.woff') format('woff');
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SakkalMajalla';
+  src: url('https://irtiqacentre.in/Fonts/Sakkal/majallab.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
 }
 
