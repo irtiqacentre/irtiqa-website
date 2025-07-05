@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'SakkalMajalla';
+  src: url('https://irtiqacentre.in/amy/MBNASILC-Library/SakkalMajalla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'SakkalMajalla', sans-serif;
   background: #f0f0f0;
   padding: 20px;
   margin: 0;
