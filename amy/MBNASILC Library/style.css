@@ -1,18 +1,31 @@
+/* Load Sakkal Majalla font from your hosted URL */
+@font-face {
+  font-family: 'SakkalMajalla';
+  src: url('https://irtiqacentre.in/amy/MBNASILC-Library/SakkalMajalla.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font and base layout */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'SakkalMajalla', sans-serif;
   background: #f0f0f0;
   padding: 20px;
   margin: 0;
   direction: rtl;
   text-align: right;
+  line-height: 1.8;
+  color: #222;
 }
 
+/* Page title */
 h1 {
   text-align: center;
   color: #007acc;
   margin-bottom: 30px;
 }
 
+/* Search input and button container */
 #searchContainer {
   display: flex;
   flex-direction: row;
@@ -21,6 +34,7 @@ h1 {
   margin: 0 auto 30px auto;
 }
 
+/* Search input styling */
 #searchInput {
   flex: 1;
   padding: 12px;
@@ -31,6 +45,7 @@ h1 {
   text-align: right;
 }
 
+/* Search button styling */
 #searchBtn {
   padding: 12px 20px;
   font-size: 16px;
@@ -45,6 +60,7 @@ h1 {
   background: #005b99;
 }
 
+/* Section container (each JSON group) */
 .section {
   background: white;
   padding: 15px;
@@ -54,15 +70,38 @@ h1 {
   border-radius: 6px;
 }
 
+/* Section title */
 .section h2 {
   color: #007acc;
   margin-top: 0;
+  font-size: 20px;
 }
 
+/* Individual book entry card */
 .book-card {
   background: #f9f9f9;
   padding: 10px;
   margin: 10px 0;
   border-right: 4px solid #ccc;
   border-radius: 4px;
+  font-size: 15px;
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 600px) {
+  #searchContainer {
+    flex-direction: column;
+  }
+
+  #searchBtn {
+    width: 100%;
+  }
+
+  .section h2 {
+    font-size: 18px;
+  }
+
+  .book-card {
+    font-size: 14px;
+  }
 }
