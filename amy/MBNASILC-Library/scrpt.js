@@ -105,7 +105,6 @@ function performSearch() {
 
   if (results.length === 0) {
     resultsBox.innerHTML = `<div class="no-results">🚫 لا توجد نتائج مطابقة.</div>`;
-    return;
   }
 
   resultsBox.innerHTML = results.map(book => `
