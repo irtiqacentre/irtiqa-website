@@ -1,25 +1,3 @@
-const categoryMap = {
-  'MJ- 1/': 'تفسير القرآن الكريم',
-  'MJ- 2/': 'أصول التفسير وعلوم القرآن',
-  'MJ- 3/': 'الحديث',
-  'MJ- 4/': 'شروح الحديث',
-  'MJ- 5/': 'مصطلح الحديث',
-  'MJ- 6/': 'العقيدة والأديان والفرق',
-  'MJ- 7/': 'الفقه',
-  'MJ- 8/': 'أصول الفقه',
-  'MJ- 9/': 'الفتاوى',
-  'MJ- 10/': 'السيرة',
-  'MJ- 11/': 'التاريخ',
-  'MJ- 12/': 'التراجم',
-  'MJ- 13/': 'اللغة',
-  'MJ- 14/': 'الدعوة',
-  'MJ- 15/': 'مجموعات',
-  'MJ- 16/': 'متفرقات',
-  'MJ- 17/': 'مطويات',
-  'MJ- 18/': 'مجلات',
-  'MJ- 19/': 'كتب بالأردية'
-};
-
 let books = [];
 
 fetch("https://irtiqacentre.in/amy/MBNASILC-Library/library01.json")
@@ -31,6 +9,30 @@ fetch("https://irtiqacentre.in/amy/MBNASILC-Library/library01.json")
       headers.forEach((key, i) => {
         obj[key] = row[i];
       });
+
+      // التصنيف حسب الرقم العام
+      const code = obj["الرقم العام"] || '';
+      if (code.startsWith("MJ- 1/")) obj["التصنيف"] = "تفسير القرآن الكريم";
+      else if (code.startsWith("MJ- 2/")) obj["التصنيف"] = "أصول التفسير وعلوم القرآن";
+      else if (code.startsWith("MJ- 3/")) obj["التصنيف"] = "الحديث";
+      else if (code.startsWith("MJ- 4/")) obj["التصنيف"] = "شروح الحديث";
+      else if (code.startsWith("MJ- 5/")) obj["التصنيف"] = "مصطلح الحديث";
+      else if (code.startsWith("MJ- 6/")) obj["التصنيف"] = "العقيدة والأديان والفرق";
+      else if (code.startsWith("MJ- 7/")) obj["التصنيف"] = "الفقه";
+      else if (code.startsWith("MJ- 8/")) obj["التصنيف"] = "أصول الفقه";
+      else if (code.startsWith("MJ- 9/")) obj["التصنيف"] = "الفتاوى";
+      else if (code.startsWith("MJ- 10/")) obj["التصنيف"] = "السيرة";
+      else if (code.startsWith("MJ- 11/")) obj["التصنيف"] = "التاريخ";
+      else if (code.startsWith("MJ- 12/")) obj["التصنيف"] = "التراجم";
+      else if (code.startsWith("MJ- 13/")) obj["التصنيف"] = "اللغة";
+      else if (code.startsWith("MJ- 14/")) obj["التصنيف"] = "الدعوة";
+      else if (code.startsWith("MJ- 15/")) obj["التصنيف"] = "مجموعات";
+      else if (code.startsWith("MJ- 16/")) obj["التصنيف"] = "متفرقات";
+      else if (code.startsWith("MJ- 17/")) obj["التصنيف"] = "مطويات";
+      else if (code.startsWith("MJ- 18/")) obj["التصنيف"] = "مجلات";
+      else if (code.startsWith("MJ- 19/")) obj["التصنيف"] = "كتب بالأردية";
+      else obj["التصنيف"] = "غير مصنفة";
+
       return obj;
     });
   })
@@ -48,68 +50,53 @@ function performSearch() {
     return;
   }
 
-  const filtered = books.filter(book =>
-    (book.title && book.title.toLowerCase().includes(query)) ||
-    (book.author && book.author.toLowerCase().includes(query)) ||
-    (book.code && book.code.toLowerCase().includes(query))
+  const results = books.filter(book =>
+    (book["اسم الكتاب"] && book["اسم الكتاب"].toLowerCase().includes(query)) ||
+    (book["المؤلف"] && book["المؤلف"].toLowerCase().includes(query)) ||
+    (book["الرقم العام"] && book["الرقم العام"].toLowerCase().includes(query))
   );
 
-  if (filtered.length === 0) {
+  if (results.length === 0) {
     resultsBox.innerHTML = `<div class="no-results">🚫 لا توجد نتائج مطابقة.</div>`;
     return;
   }
 
-  // إنشاء مجموعات حسب التصنيف
   const grouped = {};
-
-  filtered.forEach(book => {
-    let category = 'غير مصنفة';
-
-    for (const prefix in categoryMap) {
-      if (book.code && book.code.startsWith(prefix)) {
-        category = categoryMap[prefix];
-        break;
-      }
-    }
-
-    if (!grouped[category]) grouped[category] = [];
-    grouped[category].push(book);
+  results.forEach(book => {
+    const cat = book["التصنيف"] || "غير مصنفة";
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(book);
   });
 
-  // ترتيب التصنيفات حسب الترتيب الأصلي
-  const sortedCategories = Object.entries(categoryMap)
-    .map(([prefix, name]) => name)
-    .filter(name => grouped[name]); // فقط المعروضة
+  const order = [
+    "تفسير القرآن الكريم", "أصول التفسير وعلوم القرآن", "الحديث", "شروح الحديث", "مصطلح الحديث",
+    "العقيدة والأديان والفرق", "الفقه", "أصول الفقه", "الفتاوى", "السيرة", "التاريخ",
+    "التراجم", "اللغة", "الدعوة", "مجموعات", "متفرقات", "مطويات", "مجلات", "كتب بالأردية", "غير مصنفة"
+  ];
 
   let html = '';
-
-  sortedCategories.forEach(category => {
-    html += `<h3 style="margin-bottom: 15px; color: #0d47a1;">${category}</h3>`;
+  for (const category of order) {
+    if (!grouped[category]) continue;
+    html += `<h3>${category}</h3>`;
     grouped[category].forEach(book => {
       html += `
         <div class="result">
-          <div class="title">${book.title || 'بدون عنوان'}</div>
+          <div class="title">${book["اسم الكتاب"] || 'بدون عنوان'}</div>
           <div class="details">
-            المؤلف: ${book.author || '-'}<br>
-            المحقق: ${book.translator || '-'}<br>
-            المجلد: ${book.volume || '-'}<br>
-            الناشر: ${book.publisher || '-'}<br>
-            الطبعة: ${book.year || '-'}<br>
-            الرقم العام: ${book.code || '-'}
+            المؤلف: ${book["المؤلف"] || '-'}<br>
+            المحقق: ${book["المحقق"] || '-'}<br>
+            عدد المجلدات: ${book["عدد المجلدات"] || '-'}<br>
+            دار النشر: ${book["دار النشر"] || '-'}<br>
+            الطبعة: ${book["الطبعة"] || '-'}<br>
+            الرقم العام: ${book["الرقم العام"] || '-'}
           </div>
         </div>
       `;
     });
-  });
+  }
 
   resultsBox.innerHTML = html;
 }
-
-  if (query === "") {
-    resultsBox.innerHTML = "⚠️ الرجاء إدخال كلمة للبحث.";
-    return;
-  }
-
   const results = books.filter(book =>
     (book["اسم الكتاب"] && book["اسم الكتاب"].toLowerCase().includes(query)) ||
     (book["المؤلف"] && book["المؤلف"].toLowerCase().includes(query)) ||
