@@ -118,4 +118,5 @@ body {
   width: 100%;
   max-width: 600px; /* Adjust this max width as you wish */
   height: auto;
+margin-bottom: 30px; /* ⬅️ Add this */
 }
