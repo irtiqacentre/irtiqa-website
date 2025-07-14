@@ -74,12 +74,13 @@ body {
 
 /* نتائج البحث */
 .results {
-  margin-top: 40px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  background: #f9f9f9;
+  padding: 12px;
+  margin: 10px 0;
+  border-right: 4px solid #ccc;
+  border-radius: 4px;
+  font-size: 17px;
 }
-
 /* نتيجة فردية */
 .result {
   background: #fff;
