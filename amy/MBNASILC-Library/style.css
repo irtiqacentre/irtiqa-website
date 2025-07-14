@@ -83,11 +83,12 @@ body {
 }
 /* نتيجة فردية */
 .result {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
+    background: white;
+  padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-right: 6px solid #007acc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 }
 
 /* عنوان الكتاب */
