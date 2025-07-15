@@ -47,22 +47,24 @@ Promise.all(
 ).catch(err => {
   document.getElementById('results').innerHTML = '❌ فشل تحميل الملفات.';
   console.error(err);
+  console.log("📚 الكتب المحملة:", books);
 });
 
 function performSearch() {
   const query = document.getElementById('searchInput').value.trim().toLowerCase();
   const resultsBox = document.getElementById('results');
+  console.log("🔍 البحث عن:", query);
+console.log("🧪 عدد النتائج:", filteredBooks.length);
+console.log(filteredBooks);
 
   if (query === "") {
     resultsBox.innerHTML = "⚠️ الرجاء إدخال كلمة للبحث.";
     return;
   }
 
-  const filteredBooks = books.filter(book =>
-    (book["اسم الكتاب"] && book["اسم الكتاب"].toLowerCase().includes(query)) ||
-    (book["المؤلف"] && book["المؤلف"].toLowerCase().includes(query)) ||
-    (book["الرقم العام"] && book["الرقم العام"].toLowerCase().includes(query))
-  );
+const filteredBooks = books.filter(book =>
+  JSON.stringify(book).toLowerCase().includes(query)
+);
 
   if (filteredBooks.length === 0) {
     resultsBox.innerHTML = `<div class="no-results">🚫 لا توجد نتائج مطابقة.</div>`;
