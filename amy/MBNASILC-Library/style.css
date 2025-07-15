@@ -24,7 +24,7 @@ body {
 .search-bar {
   width: 100%;
   height: 58px;
-  padding: 0 60px 0 20px;
+  padding: 0 22px 0 60px;
   font-size: 19px;
   border: none;
   border-radius: 30px;
@@ -43,7 +43,7 @@ body {
   font-weight: 400;
   text-align: right;
   direction: rtl;
-  padding-right: 60px; /* Push it slightly to the right */
+  padding-right: 0px; /* Push it slightly to the right */
 }
 
 
