@@ -1,4 +1,5 @@
 let books = [];
+
 const sectionFiles = [
   { file: 'librarydata01.json', section: 'تفسير القرآن الكريم' },
   { file: 'librarydata02.json', section: 'أصول التفسير وعلوم القرآن' },
@@ -32,7 +33,7 @@ Promise.all(
           headers.forEach((key, i) => {
             obj[key] = row[i];
           });
-          obj["القسم"] = section; // نضيف القسم لكل كتاب
+          obj["القسم"] = section; // Add the section label to each book
           return obj;
         });
         books.push(...sectionBooks);
@@ -42,25 +43,6 @@ Promise.all(
   document.getElementById('results').innerHTML = '❌ فشل تحميل الملفات.';
   console.error(err);
 });
-
-let books = [];
-
-fetch("https://irtiqacentre.in/amy/MBNASILC-Library/library01.json")
-  .then(response => response.json())
-  .then(data => {
-    const headers = data[0];
-    books = data.slice(1).map(row => {
-      let obj = {};
-      headers.forEach((key, i) => {
-        obj[key] = row[i];
-      });
-      return obj;
-    });
-  })
-  .catch(err => {
-    document.getElementById('results').innerHTML = '❌ فشل تحميل البيانات.';
-    console.error(err);
-  });
 
 function performSearch() {
   const query = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -82,7 +64,6 @@ function performSearch() {
     return;
   }
 
-  // تقسيم النتائج حسب القسم
   const grouped = {};
   filteredBooks.forEach(book => {
     const section = book["القسم"] || "غير محدد";
@@ -90,7 +71,6 @@ function performSearch() {
     grouped[section].push(book);
   });
 
-  // بناء HTML للنتائج
   let outputHTML = "";
   for (const section in grouped) {
     outputHTML += `
@@ -116,21 +96,6 @@ function performSearch() {
   }
 
   resultsBox.innerHTML = outputHTML;
-}
-
-  resultsBox.innerHTML = results.map(book => `
-    <div class="result">
-      <div class="title">${book["اسم الكتاب"] || 'بدون عنوان'}</div>
-      <div class="details">
-        المؤلف: ${book["المؤلف"] || '-'}<br>
-        المحقق: ${book["المحقق"] || '-'}<br>
-        عدد المجلدات: ${book["عدد المجلدات"] || '-'}<br>
-        دار النشر: ${book["دار النشر"] || '-'}<br>
-        الطبعة: ${book["الطبعة"] || '-'}<br>
-        الرقم العام: ${book["الرقم العام"] || '-'}
-      </div>
-    </div>
-  `).join('');
 }
 
 document.getElementById('searchInput').addEventListener('keydown', function(e) {
