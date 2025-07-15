@@ -22,19 +22,24 @@ const sectionFiles = [
   { file: 'librarydata19.json', section: 'كتب بالأردية' }
 ];
 
+// تحميل كل الملفات بدون رؤوس
 Promise.all(
   sectionFiles.map(({ file, section }) =>
-    fetch(`./books/${file}`)
+    fetch(`books/${file}`)
       .then(res => res.json())
       .then(data => {
-        const headers = data[0];
-        const sectionBooks = data.slice(1).map(row => {
-          let obj = {};
-          headers.forEach((key, i) => {
-            obj[key] = row[i];
-          });
-          obj["القسم"] = section; // Add the section label to each book
-          return obj;
+        const sectionBooks = data.map(row => {
+          return {
+            "الرقم": row[0],
+            "اسم الكتاب": row[1],
+            "المؤلف": row[2],
+            "المحقق": row[3],
+            "المجلد": row[4],
+            "دار النشر": row[5],
+            "الطبعة": row[6],
+            "الرقم العام": row[7],
+            "القسم": section
+          };
         });
         books.push(...sectionBooks);
       })
@@ -85,10 +90,11 @@ function performSearch() {
           <div class="details">
             المؤلف: ${book["المؤلف"] || '-'}<br>
             المحقق: ${book["المحقق"] || '-'}<br>
-            عدد المجلدات: ${book["عدد المجلدات"] || '-'}<br>
+            المجلد: ${book["المجلد"] || '-'}<br>
             دار النشر: ${book["دار النشر"] || '-'}<br>
             الطبعة: ${book["الطبعة"] || '-'}<br>
-            الرقم العام: ${book["الرقم العام"] || '-'}
+            الرقم العام: ${book["الرقم العام"] || '-'}<br>
+            🔢 رقم الفهرسة: ${book["الرقم"] || '-'}
           </div>
         </div>
       `;
@@ -98,6 +104,6 @@ function performSearch() {
   resultsBox.innerHTML = outputHTML;
 }
 
-document.getElementById('searchInput').addEventListener('keydown', function(e) {
+document.getElementById('searchInput').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') performSearch();
 });
