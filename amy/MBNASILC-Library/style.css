@@ -56,7 +56,7 @@ body {
 /* أيقونة البحث */
 .search-icon {
   position: absolute;
-  left: 20px; /* RTL: icon should be on the right */
+  left: 10px; /* RTL: icon should be on the right */
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
