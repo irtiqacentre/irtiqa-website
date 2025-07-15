@@ -43,7 +43,7 @@ body {
   font-weight: 400;
   text-align: right;
   direction: rtl;
-  padding-right: 0px; /* Push it slightly to the right */
+  padding-right: 60px; /* Push it slightly to the right */
 }
 
 
