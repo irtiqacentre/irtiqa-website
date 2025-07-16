@@ -1,3 +1,4 @@
+// Mapping of JSON files and their Arabic sections
 const fileMappings = [
   { url: 'https://irtiqacentre.in/amy/MBNASILC-Library/books/librarydata01.json', section: 'قسم تفسير القرآن الكريم' },
   { url: 'https://irtiqacentre.in/amy/MBNASILC-Library/books/librarydata02.json', section: 'قسم أصول التفسير وعلوم القرآن' },
@@ -20,19 +21,22 @@ const fileMappings = [
   { url: 'https://irtiqacentre.in/amy/MBNASILC-Library/books/librarydata19.json', section: 'قسم كتب بالأردية' }
 ];
 
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
-const resultsContainer = document.getElementById("results");
-
-// Enable Enter key to trigger search
-searchInput.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    searchButton.click();
-  }
+// Attach Enter key support via JavaScript only
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-input");
+  searchInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      performSearch(); // Trigger the same function used by the search-icon
+    }
+  });
 });
 
-searchButton.addEventListener("click", async () => {
+// Main search function used by both click & Enter
+async function performSearch() {
+  const searchInput = document.getElementById("search-input");
   const query = searchInput.value.trim().toLowerCase();
+  const resultsContainer = document.getElementById("results");
+
   resultsContainer.innerHTML = "<p>جارٍ التحميل...</p>";
 
   if (!query) {
@@ -40,12 +44,10 @@ searchButton.addEventListener("click", async () => {
     return;
   }
 
-  let finalResults = [];
-
   const fetchPromises = fileMappings.map(async ({ url, section }) => {
     try {
-      const response = await fetch(url);
-      const data = await response.json();
+      const res = await fetch(url);
+      const data = await res.json();
 
       const matched = data.filter(item => {
         return (
@@ -62,13 +64,13 @@ searchButton.addEventListener("click", async () => {
         return { section, matched };
       }
     } catch (error) {
-      console.error("Error fetching:", url, error);
+      console.error("خطأ في تحميل: " + url, error);
     }
     return null;
   });
 
   const allResults = await Promise.all(fetchPromises);
-  finalResults = allResults.filter(result => result !== null);
+  const finalResults = allResults.filter(x => x !== null);
 
   if (finalResults.length === 0) {
     resultsContainer.innerHTML = "<p>لا توجد نتائج.</p>";
@@ -77,6 +79,7 @@ searchButton.addEventListener("click", async () => {
 
   resultsContainer.innerHTML = "";
 
+  // Render results
   finalResults.forEach(({ section, matched }) => {
     const sectionDiv = document.createElement("div");
     sectionDiv.classList.add("result-section");
@@ -99,9 +102,10 @@ searchButton.addEventListener("click", async () => {
         ${item["الرقم العام"] ? `<p>📑 الرقم العام: ${item["الرقم العام"]}</p>` : ""}
         <hr/>
       `;
+
       sectionDiv.appendChild(itemDiv);
     });
 
     resultsContainer.appendChild(sectionDiv);
   });
-});
+}
