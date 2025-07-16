@@ -49,16 +49,13 @@ async function performSearch() {
       const res = await fetch(url);
       const data = await res.json();
 
-      const matched = data.filter(item => {
-        return (
-          item["اسم الكتاب"]?.toLowerCase().includes(query) ||
-          item["المؤلف"]?.toLowerCase().includes(query) ||
-          item["المحقق"]?.toLowerCase().includes(query) ||
-          item["دار النشر"]?.toLowerCase().includes(query) ||
-          item["الطبعة"]?.toLowerCase().includes(query) ||
-          item["الرقم العام"]?.toLowerCase().includes(query)
-        );
-      });
+      // ✅ تعديل هنا: التعامل مع بيانات على شكل [ [..], [..] ]
+      const matched = data.filter(item =>
+        item.some(field =>
+          typeof field === 'string' &&
+          field.toLowerCase().includes(query)
+        )
+      );
 
       if (matched.length > 0) {
         return { section, matched };
@@ -79,7 +76,6 @@ async function performSearch() {
 
   resultsContainer.innerHTML = "";
 
-  // Render results
   finalResults.forEach(({ section, matched }) => {
     const sectionDiv = document.createElement("div");
     sectionDiv.classList.add("result-section");
@@ -93,16 +89,15 @@ async function performSearch() {
       itemDiv.classList.add("result-item");
 
       itemDiv.innerHTML = `
-        <p><strong>📘 ${item["اسم الكتاب"] || "بدون عنوان"}</strong></p>
-        ${item["المؤلف"] ? `<p>✍️ المؤلف: ${item["المؤلف"]}</p>` : ""}
-        ${item["المحقق"] ? `<p>🔍 المحقق: ${item["المحقق"]}</p>` : ""}
-        ${item["المجلد"] ? `<p>📚 المجلد: ${item["المجلد"]}</p>` : ""}
-        ${item["دار النشر"] ? `<p>🏢 دار النشر: ${item["دار النشر"]}</p>` : ""}
-        ${item["الطبعة"] ? `<p>🖨️ الطبعة: ${item["الطبعة"]}</p>` : ""}
-        ${item["الرقم العام"] ? `<p>📑 الرقم العام: ${item["الرقم العام"]}</p>` : ""}
+        <p><strong>📘 ${item[1] || "بدون عنوان"}</strong></p>
+        ${item[2] ? `<p>✍️ المؤلف: ${item[2]}</p>` : ""}
+        ${item[3] ? `<p>🔍 المحقق: ${item[3]}</p>` : ""}
+        ${item[4] ? `<p>📚 المجلد: ${item[4]}</p>` : ""}
+        ${item[5] ? `<p>🏢 دار النشر: ${item[5]}</p>` : ""}
+        ${item[6] ? `<p>🖨️ الطبعة: ${item[6]}</p>` : ""}
+        ${item[7] ? `<p>📑 الرقم العام: ${item[7]}</p>` : ""}
         <hr/>
       `;
-
       sectionDiv.appendChild(itemDiv);
     });
 
