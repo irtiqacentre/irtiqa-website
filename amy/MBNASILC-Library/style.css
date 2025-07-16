@@ -12,12 +12,22 @@
   font-style: normal;
 }
 
+body {
+  font-family: 'SakkalMajalla', sans-serif;
+  font-size: 17px;
+  background: #f0f0f0;
+  padding: 20px;
+  margin: 0;
+  direction: rtl;
+  text-align: right;
+}
+
 /* قاعدة عامة للخطوط وتصفير الهوامش */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Tajawal', sans-serif;
+  font-family: 'SakkalMajalla', sans-serif;
 }
 
 /* تنسيق الجسم */
