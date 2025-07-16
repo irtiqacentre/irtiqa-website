@@ -22,7 +22,7 @@ async function performSearch() {
   resultsContainer.innerHTML = ""; // Clear previous results
 
   if (!query) {
-    resultsContainer.innerHTML = "🔎 أدخل كلمة للبحث أعلاه.";
+    resultsContainer.innerHTML = `<div class="msg">🔎 أدخل كلمة للبحث أعلاه.";</div>`;
     return;
   }
 
