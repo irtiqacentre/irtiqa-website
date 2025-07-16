@@ -1,5 +1,5 @@
 const jsonFiles = Array.from({ length: 19 }, (_, i) =>
-  `https://irtiqacentre.in/amy/MBNASILC-Library/books/librarydata${String(i + 1).padStart(2, '0')}.json`
+  `/books/librarydata${String(i + 1).padStart(2, '0')}.json`
 );
 
 const categories = [
