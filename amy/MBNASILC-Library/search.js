@@ -45,13 +45,13 @@ async function performSearch() {
           <div class="title">${categories[i]}</div>
           <div class="details">
             ${matched.map(book => `
-              <strong class="BookName">📘 ${book[1]}</strong><br>
-              المؤلف: ${book[2] || "غير معروف"}<br>
-              المحقق: ${book[3] || "—"}<br>
-              المجلد: ${book[4] || "—"}<br>
-              دار النشر: ${book[5] || "—"}<br>
-              الطبعة: ${book[6] || "—"}<br>
-              الرقم العام: ${book[7] || "—"}<br><br>
+              <h1 class="BookName">📘 ${book[1]}</h1><br>
+              <h2 class="OtherDetails">المؤلف:</h2> ${book[2] || "غير معروف"}<br>
+              <h2 class="OtherDetails">المحقق:</h2> ${book[3] || "—"}<br>
+              <h2 class="OtherDetails">المجلد:</h2> ${book[4] || "—"}<br>
+              <h2 class="OtherDetails">دار النشر:</h2> ${book[5] || "—"}<br>
+              <h2 class="OtherDetails">الطبعة:</h2> ${book[6] || "—"}<br>
+              <h2 class="OtherDetails">الرقم العام:</h2> ${book[7] || "—"}<br><br>
             `).join("")}
           </div>
         `;
