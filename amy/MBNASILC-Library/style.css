@@ -80,17 +80,17 @@ body {
 }
 
 /* نتائج البحث */
-.results {
+.result {
   background: #f9f9f9;
   padding: 12px;
   margin: 10px 0;
-  border-right: 4px solid #B48E28;
+  border-right: 6px solid #B48E28;
   border-radius: 4px;
   font-size: 17px;
 }
 /* نتيجة فردية */
-.result {
-    background: white;
+.details {
+  background: white;
   padding: 15px;
   margin-bottom: 20px;
   border-right: 4px solid #09623E;
