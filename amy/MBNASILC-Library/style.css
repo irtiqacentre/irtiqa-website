@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'SakkalMajalla';
+  src: url('https://irtiqacentre.in/Fonts/Sakkal/majalla.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SakkalMajalla';
+  src: url('https://irtiqacentre.in/Fonts/Sakkal/majallab.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 /* قاعدة عامة للخطوط وتصفير الهوامش */
 * {
   margin: 0;
@@ -101,9 +115,9 @@ body {
 /* عنوان الكتاب */
 .title {
   font-weight: bold;
-  font-size: 1.15em;
-  color: #09623E;
-  margin-bottom: 8px;
+  font-size: 16px;
+  color: #B48E28;
+  margin-bottom: 10px;
 }
 
 /* تفاصيل الكتاب */
