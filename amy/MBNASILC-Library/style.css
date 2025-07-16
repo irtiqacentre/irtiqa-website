@@ -122,11 +122,19 @@ body {
   border-radius: 6px;
 }
 
-/* عنوان الكتاب */
+/* اسم القسم */
 .title {
   font-weight: bold;
   font-size: 16px;
   color: #B48E28;
+  margin-bottom: 10px;
+}
+
+/* اسم الكتاب */
+.BookName {
+  font-weight: bold;
+  font-size: 16px;
+  color: #09623E;
   margin-bottom: 10px;
 }
 
