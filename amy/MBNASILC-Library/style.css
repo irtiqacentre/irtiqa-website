@@ -37,6 +37,11 @@ body {
   font-family: 'SakkalMajalla', sans-serif;
 }
 
+h2 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
 /* حاوية شريط البحث */
 .search-container {
   position: relative;
@@ -125,25 +130,25 @@ body {
 /* اسم القسم */
 .title {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 25px;
   color: #B48E28;
   margin-bottom: 10px;
 }
 
 /* اسم الكتاب */
-.BookName {
+h1 {
   font-weight: bold;
   font-size: 16px;
   color: #09623E;
   margin-bottom: 10px;
 }
 
-/* تفاصيل الكتاب */
+/* تفاصيل الكتاب 
 .details {
   font-size: 0.96em;
   color: #444;
   line-height: 1.8;
-}
+} */
 
 /* عندما لا توجد نتائج */
 .no-results {
