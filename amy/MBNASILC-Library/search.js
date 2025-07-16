@@ -10,6 +10,12 @@ const categories = [
   "قسم المجلات", "قسم الكتب بالأردية"
 ];
 
+document.getElementById("search-input").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    performSearch();
+  }
+});
+
 async function performSearch() {
   const query = document.getElementById("search-input").value.trim();
   const resultsContainer = document.getElementById("results");
