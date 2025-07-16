@@ -175,11 +175,17 @@ body {
 
 /* عندما لا توجد نتائج */
 .no-results {
-  color: #999;
+  background: #d9fff0;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font-size: 24px;
   text-align: center;
-  font-size: 1.1em;
-  margin-top: 30px;
+  font-weight: bold;
 }
+
 
 .msg {
   text-align: centre;
