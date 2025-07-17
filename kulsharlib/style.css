@@ -175,6 +175,18 @@ body {
 
 /* عندما لا توجد نتائج */
 .no-results {
+  background: #fccfcf;
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+Result-Heading {
   background: #d9fff0;
   padding: 15px;
   margin-bottom: 20px;
