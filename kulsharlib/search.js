@@ -38,11 +38,11 @@ async function performSearch() {
       );
 
       if (matched.length > 0) {
+        resultsContainer.innerHTML = `<div class="Result-Heading">نتائج البحث عن «${query}»</div>`;
         const section = document.createElement("div");
         section.classList.add("result");
-
+        
         section.innerHTML = `
-          <div class="Result-Heading">نتائح البحث عن «${query}»</div>
           <div class="title">${categories[i]}</div>
           <div class="details">
             ${matched.map(book => `
