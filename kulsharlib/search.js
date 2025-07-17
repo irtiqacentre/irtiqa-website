@@ -22,7 +22,7 @@ async function performSearch() {
   resultsContainer.innerHTML = ""; // Clear previous results
 
   if (!query) {
-    resultsContainer.innerHTML = `<div class="msg">🔎 أدخل كلمة للبحث أعلاه.";</div>`;
+    resultsContainer.innerHTML = ``;
     return;
   }
 
@@ -42,6 +42,7 @@ async function performSearch() {
         section.classList.add("result");
 
         section.innerHTML = `
+          <div class="Result-Heading">نتائح البحث عن «${query}»</div>
           <div class="title">${categories[i]}</div>
           <div class="details">
             ${matched.map(book => `
@@ -64,6 +65,6 @@ async function performSearch() {
   }
 
   if (totalResults === 0) {
-    resultsContainer.innerHTML = `<div class="no-results">لا توجد نتائج لـ (${query})</div>`;
+    resultsContainer.innerHTML = `<div class="no-results">لا توجد نتائج لـ «${query}»</div>`;
   }
 }
