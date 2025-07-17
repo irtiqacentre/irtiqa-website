@@ -144,6 +144,7 @@ body {
   font-size: 24px;
   color: #09623E;
   display: inline-block;
+  margin-right: 5px;
   margin-bottom: 4px;
 }
 
@@ -152,7 +153,7 @@ body {
   font-weight: bolder;
   font-size: 21px;
   color: #09623E;
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 /* تفاصيل */
