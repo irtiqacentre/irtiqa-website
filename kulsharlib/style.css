@@ -144,7 +144,7 @@ body {
   font-size: 24px;
   color: #09623E;
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 3px;
   margin-bottom: 4px;
 }
 
@@ -153,14 +153,14 @@ body {
   font-weight: bolder;
   font-size: 21px;
   color: #09623E;
-  margin-right: 5px;
+  margin-right: 3px;
 }
 
 /* تفاصيل */
 .OtherDetail {
   font-size: 18px;
   color: #473709;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 /* نتيجة فردية */
