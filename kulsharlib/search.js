@@ -10,7 +10,7 @@ const categories = [
   "قسم المجلات", "قسم الكتب بالأردية"
 ];
 
-document.getElementById("search-input").addEventListener("keydown", function(event) {
+document.getElementById("search-input").addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     performSearch();
   }
@@ -42,19 +42,31 @@ async function performSearch() {
       if (matched.length > 0) {
         const section = document.createElement("div");
         section.classList.add("result");
-        
+
         section.innerHTML = `
           <div class="title">${categories[i]}</div>
           <div class="details">
-            ${matched.map(book => `
-              <div class="card"><span class="BookName">${book[1]}</span><br>
-              <span class="SideTitle">المؤلف:</span>        <span class="OtherDetail"> ${book[2] || "غير معروف"}</span><br>
-              <span class="SideTitle">المحقق:</span>        <span class="OtherDetail"> ${book[3] || "غير معروف"}</span><br>
-              <span class="SideTitle">المجلد:</span>        <span class="OtherDetail"> ${book[4] || "غير معروف"}</span><br>
-              <span class="SideTitle">دار النشر:</span>     <span class="OtherDetail"> ${book[5] || "غير معروف"}</span><br>
-              <span class="SideTitle">الطبعة:</span>        <span class="OtherDetail"> ${book[6] || "غير معروف"}</span><br>
-              <span class="SideTitle">الرقم العام:</span>   <span class="OtherDetail"> ${book[7] || "غير معروف"}</span><br> </div>
-            `).join("")}
+${matched.map(book => {
+  const fields = [
+    { label: "المؤلف", value: book[2] },
+    { label: "المحقق", value: book[3] },
+    { label: "المجلد", value: book[4] },
+    { label: "دار النشر", value: book[5] },
+    { label: "الطبعة", value: book[6] },
+    { label: "الرقم العام", value: book[7] }
+  ];
+
+  return `
+    <div class="card">
+      <span class="BookName">${book[1]}</span><br>
+      ${fields
+        .filter(f => f.value && f.value.trim() !== "-" && f.value.trim() !== "")
+        .map(f => `<span class="SideTitle">${f.label}:</span> <span class="OtherDetail">${f.value}</span><br>`)
+        .join("")}
+    </div>
+  `;
+}).join("")}
+
           </div>
         `;
         resultsContainer.appendChild(section);
