@@ -26,6 +26,8 @@ async function performSearch() {
     return;
   }
 
+  resultsContainer.innerHTML = `<div class="Result-Heading">نتائج البحث عن «${query}»</div>`;
+
   let totalResults = 0;
 
   for (let i = 0; i < jsonFiles.length; i++) {
@@ -38,7 +40,6 @@ async function performSearch() {
       );
 
       if (matched.length > 0) {
-        resultsContainer.innerHTML = `<div class="Result-Heading">نتائج البحث عن «${query}»</div>`;
         const section = document.createElement("div");
         section.classList.add("result");
         
