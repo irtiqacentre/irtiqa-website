@@ -64,6 +64,6 @@ async function performSearch() {
   }
 
   if (totalResults === 0) {
-    resultsContainer.innerHTML = `<div class="no-results">لا توجد نتائج لـ "${query}"</div>`;
+    resultsContainer.innerHTML = `<div class="no-results">لا توجد نتائج لـ (${query})</div>`;
   }
 }
