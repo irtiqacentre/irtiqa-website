@@ -143,15 +143,16 @@ body {
   font-weight: bolder;
   font-size: 24px;
   color: #09623E;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
 /* عنوان التفاصيل */
 .SideTitle {
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: bolder;
+  font-size: 21px;
   color: #09623E;
-  margin-right: 10px;
-  line-height: 0.8;
+  margin-right: 20px;
 }
 
 /* تفاصيل */
@@ -166,11 +167,11 @@ body {
   background: white;
   padding: 15px;
   margin-bottom: 20px;
-  border-right: 4px solid #09623E;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   font-size: 18px;
   color: #444;
+  border-right: 4px solid #09623E;
 }
 
 /* عندما لا توجد نتائج */
@@ -184,6 +185,10 @@ body {
   font-size: 24px;
   text-align: center;
   font-weight: bold;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Result-Heading {
@@ -196,10 +201,8 @@ body {
   font-size: 24px;
   text-align: center;
   font-weight: bold;
-}
-
-
-.msg {
-  text-align: centre;
-  font-size: 20px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
