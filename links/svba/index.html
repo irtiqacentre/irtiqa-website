@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Redirecting…</title>
-  <meta http-equiv="refresh" content="0; url=https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM">
+
+  <!-- Prevent search engines from indexing -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Meta refresh fallback (instant redirect) -->
+  <meta http-equiv="refresh" content="0; url=https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM" />
+
   <script>
     const TARGET_URL = "https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM";
-    window.onload = function() {
-      window.location.replace(TARGET_URL);
-    };
+    function redirectNow() {
+      try {
+        window.location.replace(TARGET_URL);
+      } catch (e) {
+        window.location.href = TARGET_URL;
+      }
+    }
+    document.addEventListener("DOMContentLoaded", redirectNow);
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, 
+  <p>Redirecting… If it doesn’t open, 
      <a href="https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM">click here</a>.
   </p>
 </body>
