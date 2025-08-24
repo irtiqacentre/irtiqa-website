@@ -11,31 +11,8 @@
   <!-- Meta refresh fallback (instant redirect) -->
   <meta http-equiv="refresh" content="0; url=https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM" />
 
-  <style>
-    body {
-      margin: 0;
-      display: grid;
-      place-items: center;
-      height: 100vh;
-      background: #0b0f19;
-      color: #e6e9ef;
-      font-family: system-ui, sans-serif;
-      text-align: center;
-    }
-    .card {
-      padding: 24px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    }
-    h1 { margin: 0 0 10px; font-size: 1.3rem; }
-    a { color: #a3d3ff; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
-
   <script>
     const TARGET_URL = "https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM";
-
     function redirectNow() {
       try {
         window.location.replace(TARGET_URL);
@@ -43,14 +20,12 @@
         window.location.href = TARGET_URL;
       }
     }
-
     document.addEventListener("DOMContentLoaded", redirectNow);
   </script>
 </head>
 <body>
-  <main class="card">
-    <h1>Redirecting…</h1>
-    <p>If it doesn’t open, <a href="https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM">click here</a>.</p>
-  </main>
+  <p>Redirecting… If it doesn’t open, 
+     <a href="https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM">click here</a>.
+  </p>
 </body>
 </html>
