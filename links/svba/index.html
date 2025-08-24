@@ -3,16 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Redirecting…</title>
 
-  <!-- Prevent search engines from indexing -->
+  <!-- Prevent indexing -->
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Meta refresh fallback (instant redirect) -->
+  <!-- Fallback redirect -->
   <meta http-equiv="refresh" content="0; url=https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM" />
+
+  <style>
+    :root { --bg: #0b0f19; --text: #e6e9ef; --muted: #9aa4b2; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    .card {
+      width: min(560px, 92vw);
+      padding: 28px 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+      text-align: center;
+    }
+    h1 { margin: 0 0 6px; font-size: 1.25rem; }
+    p { margin: 6px 0 0; color: var(--muted); }
+    a { color: #a3d3ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .small { font-size: 0.9rem; }
+  </style>
 
   <script>
     const TARGET_URL = "https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM";
+
     function redirectNow() {
       try {
         window.location.replace(TARGET_URL);
@@ -20,12 +48,17 @@
         window.location.href = TARGET_URL;
       }
     }
-    document.addEventListener("DOMContentLoaded", redirectNow);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      redirectNow();
+      document.getElementById("jumpLink").href = TARGET_URL;
+    });
   </script>
 </head>
 <body>
-  <p>Redirecting… If it doesn’t open, 
-     <a href="https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM">click here</a>.
-  </p>
+  <main class="card" role="main" aria-live="polite">
+    <h1>Redirecting…</h1>
+    <p>If nothing happens, <a id="jumpLink" href="https://mega.nz/file/qt5xxJwY#-RFj7_DQHN0mnr1T1chv7l6Z2BbcPoSp3VXqCHfx-jM" rel="nofollow noopener">click here</a>.</p>
+  </main>
 </body>
 </html>
